@@ -1,7 +1,10 @@
 /*
  * Extrapolated / reversed header for Sound Trigger
  */
-#ifndef SOUND_TRIGGER_PROP_INTF_H define SOUND_TRIGGER_PROP_INTF_H
+
+#ifndef SOUND_TRIGGER_PROP_INTF_H
+#define SOUND_TRIGGER_PROP_INTF_H
+
 struct sound_trigger_session_info {
     int capture_handle;
     void* p_ses;
@@ -21,8 +24,8 @@ enum sound_trigger_event_type {
     ST_EVENT_SESSION_REGISTER,
     ST_EVENT_SESSION_DEREGISTER
 };
-typedef enum sound_trigger_event_type sound_trigger_event_type_t; enum 
-ssr_event_status {
+typedef enum sound_trigger_event_type sound_trigger_event_type_t; 
+enum ssr_event_status {
     SND_CARD_STATUS_OFFLINE,
     SND_CARD_STATUS_ONLINE,
     CPE_STATUS_OFFLINE,
@@ -31,8 +34,8 @@ ssr_event_status {
 struct sound_trigger_event_info {
     struct sound_trigger_session_info st_ses;
 };
-typedef struct sound_trigger_event_info sound_trigger_event_info_t; struct 
-audio_read_samples_info {
+typedef struct sound_trigger_event_info sound_trigger_event_info_t; 
+struct audio_read_samples_info {
     struct sound_trigger_session_info *ses_info;
     void *buf;
     size_t num_bytes;
@@ -45,7 +48,7 @@ struct audio_event_info {
         struct audio_read_samples_info aud_info;
     }u;
 };
-typedef struct audio_event_info audio_event_info_t; typedef int 
-(*sound_trigger_hw_call_back_t)(enum audio_event_type,
+typedef struct audio_event_info audio_event_info_t; 
+typedef int (*sound_trigger_hw_call_back_t)(enum audio_event_type,
                                             struct audio_event_info*);
 #endif
