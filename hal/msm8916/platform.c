@@ -1386,7 +1386,7 @@ static void query_platform(const char *snd_card_name,
     property_get("ro.audio.customplatform",platvalue,"0");
     if (strncmp(platvalue,"0", 1)) {
         snprintf(mixer_xml_path, MAX_MIXER_XML_PATH,
-                   "/system/etc/mixer_paths_%s.xml",
+                   "/vendor/etc/mixer_paths_%s.xml",
                    platvalue);
     }
 }
